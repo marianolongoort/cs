@@ -1,0 +1,41 @@
+﻿namespace chsarp_intro
+{
+    public enum Opcion
+    {
+        Salir = -1,
+        Fechas = 1,
+        Genericos = 2,
+        Enteros = 3,
+        Decimales = 4,
+        Strings_definicion = 5,
+        Strings_funciones_comunes = 6,
+        Tipos_de_valor = 7,
+        Tipos_de_referencia = 8,
+        Nulables = 9,
+        Jerarquia_de_tipos = 10,
+        Tipos_anonimos = 11,
+        Casting = 12,
+        Clases_de_usuario = 13,
+        Herencia = 14,
+        Interfaces = 15,
+        Metodos_del_tipo_object = 16,
+        Manejo_de_excepciones = 17,
+        Jerarquia_de_excepciones = 18,
+        Validation_attribute_Required = 19,
+        Validation_attribute_MaxLength = 20,
+        Validation_attribute_RegularExpressions = 21,
+        Validation_attribute_Range = 22,
+        Validation_attribute_Custom = 23,
+        Delegates = 24,
+        Delegates_Genericos = 25,
+        Lambdas = 26,
+        Arrays = 27,
+        ICollections = 28,
+        Listas = 29,
+        Linq_Consultas = 30,
+        Linq_Where = 31,
+        Linq_Ordering = 32,
+        Linq_Select = 33,
+        Extension_Methods = 34
+    }
+}
