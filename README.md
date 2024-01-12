@@ -2,7 +2,8 @@
 
 Este proyecto intenta exponer un roadmap de conceptos básicos a cubrir en la cursada y relacionados con POO, 
 utilizando como plataforma dotnet core 3.1 y como lenguaje c# 8.0 o superiores.
-
+Este proyecto intenta exponer un roadmap de conceptos básicos de C# a cubrir y relacionados con POO, utilizando como plataforma originalmente dotnet core 3.1 y como lenguaje c# 8.0. A medida que avanza la materia, se irá actualizando el framework que se estará soportando para ejecutar siempre la ultima versión con largo plazo de soporte.
+                
 Para consumir este proyecto:
 1. Se debe seguir el orden de las carpetas numeradas
 2. Leer atentamente la teoría expuesta en fomra de comentarios
