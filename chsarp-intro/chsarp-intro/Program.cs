@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.Versioning;
 using chsarp_intro._1_Tipos_de_datos;
 using chsarp_intro._2_Administracion_de_codigo;
 using chsarp_intro._3_Clases_de_Usuario;
@@ -60,12 +63,13 @@ namespace chsarp_intro
                 ImprimirMenu();
 
                 int.TryParse(Console.ReadLine(), out int seleccion);
+
                 opcion = seleccion != 0 ?
-                    (Opcion)seleccion :
-                    Opcion.Salir;
+                            (Opcion)seleccion :
+                            Opcion.Salir;
 
                 Console.Clear();
-
+                
                 Dispatcher.Execute(opcion);
 
                 if (opcion != Opcion.Salir)
@@ -112,6 +116,14 @@ namespace chsarp_intro
             return contenido;
         }
 
+        private static string GetSubTitulo(string texto)
+        {
+            string contenido = GetBar(texto.Length, '-') + Environment.NewLine;
+            contenido += texto + Environment.NewLine;
+            contenido += GetBar(texto.Length, '-') + Environment.NewLine;
+            return contenido;
+        }
+
         private static string GetBar(int largo, char simbolo = '*')
         {
             string barra = string.Empty;
@@ -134,10 +146,45 @@ namespace chsarp_intro
         private static void ImprimirCreditos()
         {
             Console.Clear();
+            SetConsoleColor(ConsoleColor.Yellow,ConsoleColor.Black);
             Console.WriteLine(GetTitulo("Creado por Federico Marchese y Mariano Longo"));
-            Console.WriteLine("Este proyecto intenta exponer un roadmap de conceptos básicos a cubrir en la cursada y relacionados con POO, utilizando como plataforma dotnet core 3.1 y como lenguaje c# 8.0 o superiores." + Environment.NewLine);
-            Console.WriteLine("Para consumir este proyecto, se debe seguir el orden de las carpetas numeradas, leer atentamente la teoría expuesta en fomra de comentarios, poner breakpoints en cada línea de su interes, ejecutar la aplicación haciendo debug para comprender entrada, salida/resultado en cada caso." + Environment.NewLine);
+
+            SetConsoleColor(ConsoleColor.Black, ConsoleColor.White);
+            Console.WriteLine("Este proyecto intenta exponer un roadmap de conceptos básicos " +
+                "de C# a cubrir y relacionados con POO, utilizando como plataforma originalmente " +
+                "dotnet core 3.1 y como lenguaje c# 8.0. A medida que avanza la materia, se irá actualizando " +
+                "el framework que se irá soportando, para ejecutar siempre la ultima versión con largo plazo de soporte." +
+                Environment.NewLine);
+
+            Console.Write("La versión que se está ejecutando en este momento es: ");
+            SetConsoleColor(ConsoleColor.Red, ConsoleColor.White);
+            Console.WriteLine(GetTargetFrameworkName() +
+                Environment.NewLine + Environment.NewLine
+                );
+
+            SetConsoleColor(ConsoleColor.Cyan, ConsoleColor.Black);   
+            Console.WriteLine(GetSubTitulo("¡¡¡ Importante !!!"));
+
+            SetConsoleColor(ConsoleColor.Black, ConsoleColor.White);
+            Console.WriteLine(                
+                "Para consumir este proyecto, se debe seguir el orden de las carpetas numeradas, " +
+                "leer atentamente la teoría expuesta en fomra de comentarios, poner breakpoints en " +
+                "cada línea de su interes, ejecutar la aplicación haciendo debug para comprender " +
+                "entrada, salida/resultado en cada caso." + Environment.NewLine
+            );
+            
             Pausa();
+        }
+        private static void SetConsoleColor(ConsoleColor fondo, ConsoleColor letra) {
+            Console.BackgroundColor = fondo;
+            Console.ForegroundColor = letra;
+        }
+        public static string GetTargetFrameworkName()
+        {
+            return Assembly
+                .GetEntryAssembly()?
+                .GetCustomAttribute<TargetFrameworkAttribute>()?
+                .FrameworkName;
         }
     }
 }
