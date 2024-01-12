@@ -153,7 +153,7 @@ namespace chsarp_intro
             Console.WriteLine("Este proyecto intenta exponer un roadmap de conceptos básicos " +
                 "de C# a cubrir y relacionados con POO, utilizando como plataforma originalmente " +
                 "dotnet core 3.1 y como lenguaje c# 8.0. A medida que avanza la materia, se irá actualizando " +
-                "el framework que se irá soportando, para ejecutar siempre la ultima versión con largo plazo de soporte." +
+                "el framework que se estará soportando, para ejecutar siempre la ultima versión con largo plazo de soporte." +
                 Environment.NewLine);
 
             Console.Write("La versión que se está ejecutando en este momento es: ");
